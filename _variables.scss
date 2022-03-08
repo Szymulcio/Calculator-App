@@ -1,0 +1,26 @@
+$colors: (
+	backgrounds: (
+		main: hsl(222, 26%, 31%),
+		keypad: hsl(223, 31%, 20%),
+		screen: hsl(224, 36%, 15%),
+	),
+	keys: (
+		background: hsl(30, 25%, 89%),
+		shadow: hsl(28, 16%, 65%),
+		background-cta: hsl(6, 63%, 50%),
+		shadow-cta: hsl(6, 70%, 34%),
+		background-special: hsl(225, 21%, 49%),
+		shadow-special: hsl(224, 28%, 35%),
+	),
+	text: (
+		main: hsl(221, 14%, 31%),
+		secondary: white,
+	),
+);
+
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}

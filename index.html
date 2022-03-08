@@ -1,26 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <title>Frontend Mentor | Calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <header class="header-panel">
+      <div class="name"></div>
+      <div class="theme">
+        <div class="theme--name">THEME</div>
+        <div class="theme__toggle">
+          <label class="theme__toggle--number">1</label>
+          <label class="theme__toggle--number">2</label>
+          <label class="theme__toggle--number">3</label>
+          <button class="theme__toggle--btn"></button>
+        </div>
 
+      </div>
+    </header>
+    <main>
+      <section class="display-panel">
+        <div class="display-panel__number">399,981</div>
+      </section>
+      <section class="keys-panel">
+        <div class="keys-panel__key">7</div>
+        <div class="keys-panel__key">8</div>
+        <div class="keys-panel__key">9</div>
+        <div class="keys-panel__key keys-panel__key--del">DEL</div>
+        <div class="keys-panel__key">4</div>
+        <div class="keys-panel__key">5</div>
+        <div class="keys-panel__key">6</div>
+        <div class="keys-panel__key">+</div>
+        <div class="keys-panel__key">1</div>
+        <div class="keys-panel__key">2</div>
+        <div class="keys-panel__key">3</div>
+        <div class="keys-panel__key">-</div>
+        <div class="keys-panel__key">.</div>
+        <div class="keys-panel__key">0</div>
+        <div class="keys-panel__key">/</div>
+        <div class="keys-panel__key">x</div>
+        <div class="keys-panel__key keys-panel__key--reset">RESET</div>
+        <div class="keys-panel__key keys-panel__key--cta">=</div>
+      </section>
+    </main>
+  </div>
 
-  
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
