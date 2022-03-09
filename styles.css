@@ -1,3 +1,8 @@
+:root {
+  --theme: "keys";
+  --map: "$theme-1";
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -5,22 +10,218 @@
           box-sizing: border-box;
 }
 
+/*.theme--1 {
+	--background-main: map-deep-get($theme-1, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-1, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-1, "backgrounds", "screen");
+`
+	--key-background: map-deep-get($theme-1, "keys", "background");
+	--key-shadow: map-deep-get($theme-1, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-1, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-1, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-1,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-1, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-1, "text", "main");
+	--text-secondary: map-deep-get($theme-1, "text", "secondary");
+}
+
+.theme--2 {
+	--background-main: map-deep-get($theme-2, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-2, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-2, "backgrounds", "screen");
+
+	--key-background: map-deep-get($theme-2, "keys", "background");
+	--key-shadow: map-deep-get($theme-2, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-2, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-2, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-2,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-2, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-2, "text", "main");
+	--text-secondary: map-deep-get($theme-2, "text", "secondary");
+}
+
+.theme--3 {
+	--background-main: map-deep-get($theme-3, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-3, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-3, "backgrounds", "screen");
+
+	--key-background: map-deep-get($theme-3, "keys", "background");
+	--key-shadow: map-deep-get($theme-3, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-3, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-3, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-3,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-3, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-3, "text", "main");
+	--text-secondary: map-deep-get($theme-3, "text", "secondary");
+}*/
+.theme--0 {
+  --background-main: hsl(222, 26%, 31%);
+  --background--keypad: hsl(223, 31%, 20%);
+  --background--screen: hsl(224, 36%, 15%);
+  --key-background: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-background-cta: hsl(6, 63%, 50%);
+  --key-shadow-cta: hsl(6, 70%, 34%);
+  --key-background-special: hsl(225, 21%, 49%);
+  --key-shadow-special: hsl(224, 28%, 35%);
+  --text-main: hsl(221, 14%, 31%);
+  --text-secondary: white;
+  --text-cta: white;
+  --text-white: white;
+}
+
+.theme--1 {
+  --background-main: hsl(0, 0%, 90%);
+  --background--keypad: hsl(0, 5%, 81%);
+  --background--screen: hsl(0, 0%, 93%);
+  --key-background: hsl(45, 7%, 89%);
+  --key-shadow: hsl(35, 11%, 61%);
+  --key-background-special: hsl(185, 42%, 37%);
+  --key-shadow-special: hsl(185, 58%, 25%);
+  --key-background-cta: hsl(25, 98%, 40%);
+  --key-shadow-cta: hsl(25, 99%, 27%);
+  --text-main: hsl(60, 10%, 19%);
+  --text-secondary: hsl(60, 10%, 19%);
+  --text-cta: white;
+  --text-white: white;
+}
+
+.theme--2 {
+  --background-main: hsl(268, 75%, 9%);
+  --background--keypad: hsl(268, 71%, 12%);
+  --background--screen: hsl(268, 71%, 12%);
+  --key-background: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+  --key-background-cta: hsl(176, 100%, 44%);
+  --key-shadow-cta: hsl(177, 92%, 70%);
+  --key-background-special: hsl(281, 89%, 26%);
+  --key-shadow-special: hsl(285, 91%, 52%);
+  --text-main: hsl(52, 100%, 62%);
+  --text-secondary: hsl(52, 100%, 62%);
+  --text-cta: hsl(198, 20%, 13%);
+  --text-white: white;
+}
+
 .container {
   font-family: "Spartan", sans-serif;
   font-size: 2rem;
   width: 375px;
-  height: 750px;
   margin: 50px auto;
-  background-color: #3a4764;
+  padding-bottom: 1rem;
+  background-color: var(--background-main);
+}
+
+.header-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding-top: 2rem;
+  color: var(--text-secondary);
+}
+
+.header-panel__theme {
+  font-size: 45%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 45%;
+          flex: 0 0 45%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.header-panel__theme--label {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2px;
+  letter-spacing: 1px;
+}
+
+.header-panel__theme--switch {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.header-panel__theme--btn {
+  position: relative;
+  background-color: var(--background--keypad);
+  height: 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.header-panel__theme--btn::after {
+  content: "";
+  position: absolute;
+  background-color: var(--key-background-cta);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  top: 4px;
+  -webkit-transition: left 0.5s ease-out;
+  transition: left 0.5s ease-out;
+}
+
+.theme--0::after {
+  left: 4px;
+}
+
+.theme--1::after {
+  left: 28px;
+}
+
+.theme--2::after {
+  left: 52px;
 }
 
 .display-panel {
   height: 100px;
-  width: 85%;
+  width: 90%;
   border-radius: 10px;
   margin: 2rem auto;
-  padding-right: 24px;
-  background-color: #182034;
+  padding-right: 1.5rem;
+  background-color: var(--background--screen);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,7 +234,7 @@
 }
 
 .display-panel__number {
-  color: white;
+  color: var(--text-secondary);
 }
 
 .keys-panel {
@@ -41,17 +242,16 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  background-color: #232c43;
+  grid-gap: 1.1rem;
+  background-color: var(--background--keypad);
   border-radius: 10px;
-  height: 500px;
-  width: 85%;
-  margin: 2rem auto;
-  padding: 1.5rem 1rem;
+  width: 90%;
+  margin: 2rem auto 1rem;
+  padding: 1.5rem 1.5rem 2rem;
 }
 
 .keys-panel__key {
-  height: 60px;
+  height: 65px;
   padding-top: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,26 +263,27 @@
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 5px;
-  color: #444b5a;
-  background-color: #eae3dc;
-  -webkit-box-shadow: 0px 4px 0px 0px #b4a597;
-          box-shadow: 0px 4px 0px 0px #b4a597;
+  color: var(--text-main);
+  background-color: var(--key-background);
+  -webkit-box-shadow: 0px 4px 0px 0px var(--key-shadow);
+          box-shadow: 0px 4px 0px 0px var(--key-shadow);
 }
 
 .keys-panel__key--del {
   font-size: 50%;
-  color: white;
-  background-color: #637097;
-  -webkit-box-shadow: 0px 4px 0px 0px #404e72;
-          box-shadow: 0px 4px 0px 0px #404e72;
+  color: var(--text-white);
+  background-color: var(--key-background-special);
+  -webkit-box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
+          box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
 }
 
 .keys-panel__key--cta {
   font-size: 50%;
-  color: white;
-  background-color: #d03f2f;
-  -webkit-box-shadow: 0px 4px 0px 0px #93261a;
-          box-shadow: 0px 4px 0px 0px #93261a;
+  color: var(--text-white);
+  background-color: var(--key-background-cta);
+  color: var(--text-cta);
+  -webkit-box-shadow: 0px 4px 0px 0px var(--key-shadow-cta);
+          box-shadow: 0px 4px 0px 0px var(--key-shadow-cta);
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3 / 5;
@@ -90,10 +291,10 @@
 
 .keys-panel__key--reset {
   font-size: 50%;
-  color: white;
-  background-color: #637097;
-  -webkit-box-shadow: 0px 4px 0px 0px #404e72;
-          box-shadow: 0px 4px 0px 0px #404e72;
+  color: var(--text-white);
+  background-color: var(--key-background-special);
+  -webkit-box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
+          box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / 3;

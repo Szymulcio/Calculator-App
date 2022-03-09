@@ -2,11 +2,16 @@
 
 @mixin keys-special {
 	font-size: 50%;
-	color: white;
+	color: var(--text-white);
 }
-@mixin keys-blue {
-	background-color: map-deep-get($colors, "keys", "background-special");
-	box-shadow: 0px 4px 0px 0px map-deep-get($colors, "keys", "shadow-special");
+@mixin keys-cta {
+	background-color: var(--key-background-special);
+	box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
+}
+
+:root {
+	--theme: "keys";
+	--map: "$theme-1";
 }
 
 * {
@@ -15,71 +20,248 @@
 	box-sizing: border-box;
 }
 
+/*.theme--1 {
+	--background-main: map-deep-get($theme-1, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-1, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-1, "backgrounds", "screen");
+`
+	--key-background: map-deep-get($theme-1, "keys", "background");
+	--key-shadow: map-deep-get($theme-1, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-1, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-1, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-1,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-1, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-1, "text", "main");
+	--text-secondary: map-deep-get($theme-1, "text", "secondary");
+}
+
+.theme--2 {
+	--background-main: map-deep-get($theme-2, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-2, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-2, "backgrounds", "screen");
+
+	--key-background: map-deep-get($theme-2, "keys", "background");
+	--key-shadow: map-deep-get($theme-2, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-2, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-2, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-2,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-2, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-2, "text", "main");
+	--text-secondary: map-deep-get($theme-2, "text", "secondary");
+}
+
+.theme--3 {
+	--background-main: map-deep-get($theme-3, "backgrounds", "main");
+	--background--keypad: map-deep-get($theme-3, "backgrounds", "keypad");
+	--background--screen: map-deep-get($theme-3, "backgrounds", "screen");
+
+	--key-background: map-deep-get($theme-3, "keys", "background");
+	--key-shadow: map-deep-get($theme-3, "keys", "shadow");
+	--key-background-cta: map-deep-get($theme-3, "keys", "background-cta");
+	--key-shadow-cta: map-deep-get($theme-3, "keys", "shadow-cta");
+	--key-background-special: map-deep-get(
+		$theme-3,
+		"keys",
+		"background-special"
+	);
+	--key-shadow-special: map-deep-get($theme-3, "keys", "shadow-special");
+
+	--text-main: map-deep-get($theme-3, "text", "main");
+	--text-secondary: map-deep-get($theme-3, "text", "secondary");
+}*/
+
+.theme--0 {
+	--background-main: hsl(222, 26%, 31%);
+	--background--keypad: hsl(223, 31%, 20%);
+	--background--screen: hsl(224, 36%, 15%);
+
+	--key-background: hsl(30, 25%, 89%);
+	--key-shadow: hsl(28, 16%, 65%);
+	--key-background-cta: hsl(6, 63%, 50%);
+	--key-shadow-cta: hsl(6, 70%, 34%);
+	--key-background-special: hsl(225, 21%, 49%);
+	--key-shadow-special: hsl(224, 28%, 35%);
+
+	--text-main: hsl(221, 14%, 31%);
+	--text-secondary: white;
+	--text-cta: white;
+	--text-white: white;
+}
+
+.theme--1 {
+	--background-main: hsl(0, 0%, 90%);
+	--background--keypad: hsl(0, 5%, 81%);
+	--background--screen: hsl(0, 0%, 93%);
+
+	--key-background: hsl(45, 7%, 89%);
+	--key-shadow: hsl(35, 11%, 61%);
+	--key-background-special: hsl(185, 42%, 37%);
+	--key-shadow-special: hsl(185, 58%, 25%);
+	--key-background-cta: hsl(25, 98%, 40%);
+	--key-shadow-cta: hsl(25, 99%, 27%);
+
+	--text-main: hsl(60, 10%, 19%);
+	--text-secondary: hsl(60, 10%, 19%);
+	--text-cta: white;
+	--text-white: white;
+}
+
+.theme--2 {
+	--background-main: hsl(268, 75%, 9%);
+	--background--keypad: hsl(268, 71%, 12%);
+	--background--screen: hsl(268, 71%, 12%);
+
+	--key-background: hsl(268, 47%, 21%);
+	--key-shadow: hsl(290, 70%, 36%);
+	--key-background-cta: hsl(176, 100%, 44%);
+	--key-shadow-cta: hsl(177, 92%, 70%);
+	--key-background-special: hsl(281, 89%, 26%);
+	--key-shadow-special: hsl(285, 91%, 52%);
+
+	--text-main: hsl(52, 100%, 62%);
+	--text-secondary: hsl(52, 100%, 62%);
+	--text-cta: hsl(198, 20%, 13%);
+	--text-white: white;
+}
+
 .container {
 	font-family: "Spartan", sans-serif;
 	font-size: 2rem;
 	width: 375px;
-	height: 750px;
 	margin: 50px auto;
-	background-color: map-deep-get($colors, "backgrounds", "main");
+	padding-bottom: 1rem;
+	background-color: var(--background-main);
+}
+
+.header-panel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
+	margin: auto;
+	padding-top: 2rem;
+	color: var(--text-secondary);
+
+	&__theme {
+		font-size: 45%;
+		flex: 0 0 45%;
+		display: grid;
+		grid-template: 1fr 1fr / 1fr 1fr;
+
+		&--label {
+			grid-row: 2 / 3;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			padding-top: 2px;
+			letter-spacing: 1px;
+		}
+
+		&--switch {
+			grid-column: 2 / 3;
+			display: flex;
+			justify-content: space-around;
+		}
+
+		&--btn {
+			position: relative;
+			background-color: var(--background--keypad);
+			height: 24px;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+
+			&::after {
+				content: "";
+				position: absolute;
+				background-color: var(--key-background-cta);
+				height: 16px;
+				width: 16px;
+				border-radius: 50%;
+				top: 4px;
+				transition: left 0.5s ease-out;
+			}
+		}
+	}
+}
+
+.theme--0::after {
+	left: 4px;
+}
+
+.theme--1::after {
+	left: 28px;
+}
+
+.theme--2::after {
+	left: 52px;
 }
 
 .display-panel {
 	height: 100px;
-	width: 85%;
+	width: 90%;
 	border-radius: 10px;
 	margin: 2rem auto;
-	padding-right: 24px;
-	background-color: map-deep-get($colors, "backgrounds", "screen");
+	padding-right: 1.5rem;
+	background-color: var(--background--screen);
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
 
 .display-panel__number {
-	color: map-deep-get($colors, text, secondary);
+	color: var(--text-secondary);
 }
 
 .keys-panel {
 	display: grid;
 	grid: {
 		template-columns: 1fr 1fr 1fr 1fr;
-		gap: 1rem;
+		gap: 1.1rem;
 	}
-	background-color: map-deep-get($colors, "backgrounds", "keypad");
+	background-color: var(--background--keypad);
 	border-radius: 10px;
-	height: 500px;
-	width: 85%;
-	margin: 2rem auto;
-	padding: 1.5rem 1rem;
+	width: 90%;
+	margin: 2rem auto 1rem;
+	padding: 1.5rem 1.5rem 2rem;
 
 	&__key {
-		height: 60px;
+		height: 65px;
 		padding-top: 8px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 5px;
-		color: map-deep-get($colors, "text", "main");
-		background-color: map-deep-get($colors, "keys", "background");
-		box-shadow: 0px 4px 0px 0px map-deep-get($colors, "keys", shadow);
+		color: var(--text-main);
+		background-color: var(--key-background);
+		box-shadow: 0px 4px 0px 0px var(--key-shadow);
 
 		&--del {
 			@include keys-special;
-			@include keys-blue;
+			@include keys-cta;
 		}
 
 		&--cta {
 			@include keys-special;
-			background-color: map-deep-get($colors, "keys", "background-cta");
-			box-shadow: 0px 4px 0px 0px
-				map-deep-get($colors, "keys", shadow-cta);
+			background-color: var(--key-background-cta);
+			color: var(--text-cta);
+			box-shadow: 0px 4px 0px 0px var(--key-shadow-cta);
 			grid-column: 3 / 5;
 		}
 
 		&--reset {
 			@include keys-special;
-			@include keys-blue;
+			@include keys-cta;
 			grid-column: 1 / 3;
 		}
 	}

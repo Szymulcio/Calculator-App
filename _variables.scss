@@ -1,4 +1,4 @@
-$colors: (
+$theme-1: (
 	backgrounds: (
 		main: hsl(222, 26%, 31%),
 		keypad: hsl(223, 31%, 20%),
@@ -14,6 +14,46 @@ $colors: (
 	),
 	text: (
 		main: hsl(221, 14%, 31%),
+		secondary: white,
+	),
+);
+
+$theme-2: (
+	backgrounds: (
+		main: hsl(0, 0%, 90%),
+		keypad: hsl(0, 5%, 81%),
+		screen: hsl(0, 0%, 93%),
+	),
+	keys: (
+		background: hsl(185, 42%, 37%),
+		shadow: hsl(185, 58%, 25%),
+		background-cta: hsl(25, 98%, 40%),
+		shadow-cta: hsl(25, 99%, 27%),
+		background-special: hsl(45, 7%, 89%),
+		shadow-special: hsl(35, 11%, 61%),
+	),
+	text: (
+		main: hsl(60, 10%, 19%),
+		secondary: white,
+	),
+);
+
+$theme-3: (
+	backgrounds: (
+		main: hsl(268, 75%, 9%),
+		keypad: hsl(268, 71%, 12%),
+		screen: hsl(268, 71%, 12%),
+	),
+	keys: (
+		background: hsl(281, 89%, 26%),
+		shadow: hsl(285, 91%, 52%),
+		background-cta: hsl(176, 100%, 44%),
+		shadow-cta: hsl(177, 92%, 70%),
+		background-special: hsl(268, 47%, 21%),
+		shadow-special: hsl(290, 70%, 36%),
+	),
+	text: (
+		main: hsl(52, 100%, 62%),
 		secondary: white,
 	),
 );
