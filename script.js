@@ -23,35 +23,42 @@ const signKey = [...document.querySelectorAll(".keys-panel__key--sign")];
 const resetKey = document.querySelector(".keys-panel__key--reset");
 const delKey = document.querySelector(".keys-panel__key--del");
 const ctaKey = document.querySelector(".keys-panel__key--cta");
+const dotKey = document.querySelector(".keys-panel__key--dot");
 const primaryDisplay = document.querySelector(".display-panel__number");
-const secondaryDisplay = document.querySelector(
-	".display-panel__number--secondary"
-);
+const secondaryDisplay = document.querySelector(".display-panel__number--secondary");
 
-let currentNumber = primaryDisplay.innerHTML;
+let currentNumber = primaryDisplay.textContent;
 let previousNumber;
 let secondaryNumber;
 let sign;
 let wasCalculated = false;
+let wasChained = false;
 
 const displayNumber = function (number) {
-	primaryDisplay.innerHTML = number;
+	if (number > Number.MAX_SAFE_INTEGER) {
+		primaryDisplay.textContent = "Your number is too big, sorry!";
+		resetAll();
+		setTimeout(() => displayNumber(currentNumber), 5000);
+	} else primaryDisplay.textContent = number;
 };
 
 const displaySecondaryNumber = function (number) {
 	secondaryDisplay.style.opacity = "100";
-	secondaryDisplay.innerHTML = number;
+	secondaryDisplay.textContent = number;
 };
 
 const calculate = function (currNum, sign, prevNum) {
-	if (sign === "+")
-		return Number.parseFloat(currNum) + Number.parseFloat(prevNum);
-	else if (sign === "-")
-		return Number.parseFloat(currNum) - Number.parseFloat(prevNum);
-	else if (sign === "*")
-		return Number.parseFloat(currNum) * Number.parseFloat(prevNum);
-	else if (sign === "/")
-		return Number.parseFloat(currNum) / Number.parseFloat(prevNum);
+	if (sign === "+") return Number.parseFloat(prevNum) + Number.parseFloat(currNum);
+	else if (sign === "-") return Number.parseFloat(prevNum) - Number.parseFloat(currNum);
+	else if (sign === "x") {
+		console.log(Number.parseFloat(prevNum));
+		console.log(Number.parseFloat(currNum));
+		console.log(sign);
+		return Number.parseFloat(prevNum) * Number.parseFloat(currNum);
+	} else if (sign === "/")
+		return Number.parseFloat(
+			(Number.parseFloat(prevNum) / Number.parseFloat(currNum)).toFixed(20)
+		);
 };
 
 const resetAll = function () {
@@ -61,6 +68,7 @@ const resetAll = function () {
 	secondaryNumber = "";
 	secondaryDisplay.style.opacity = "0";
 	wasCalculated = false;
+	wasChained = false;
 };
 
 /// Event Listerers
@@ -72,23 +80,44 @@ numberKey.forEach(function (key) {
 		}
 
 		currentNumber === "0"
-			? (currentNumber = this.innerHTML)
-			: (currentNumber += this.innerHTML);
+			? (currentNumber = this.textContent)
+			: (currentNumber += this.textContent);
 		displayNumber(currentNumber);
 	});
 });
 
 signKey.forEach(function (key) {
 	key.addEventListener("click", function () {
-		wasCalculated = false;
-		sign = key.innerHTML;
+		if (key.textContent === "-" && currentNumber === "0") {
+			currentNumber = "-";
+			console.log("siema");
+			displayNumber(currentNumber);
+		} else if (!wasCalculated && sign) {
+			secondaryNumber += " " + currentNumber + " " + key.textContent;
+			displaySecondaryNumber(secondaryNumber);
 
-		previousNumber = currentNumber;
-		secondaryNumber = currentNumber + " " + sign;
-		displaySecondaryNumber(secondaryNumber);
+			currentNumber = calculate(currentNumber, sign, previousNumber);
+			displayNumber(currentNumber);
 
-		currentNumber = "0";
+			sign = key.textContent;
+			previousNumber = currentNumber;
+			currentNumber = "0";
+		} else {
+			wasCalculated = false;
+
+			previousNumber = currentNumber;
+
+			sign = key.textContent;
+			secondaryNumber = currentNumber + " " + sign;
+			displaySecondaryNumber(secondaryNumber);
+			currentNumber = "0";
+		}
 	});
+});
+
+dotKey.addEventListener("click", function () {
+	currentNumber += this.textContent;
+	displayNumber(currentNumber);
 });
 
 resetKey.addEventListener("click", function () {
@@ -102,8 +131,10 @@ delKey.addEventListener("click", function () {
 });
 
 ctaKey.addEventListener("click", function () {
+	wasChained = false;
 	if (wasCalculated) {
-		secondaryNumber = `${currentNumber} + ${previousNumber} =`;
+		secondaryNumber = `${currentNumber} ${sign} ${previousNumber} =`;
+		[currentNumber, previousNumber] = [previousNumber, currentNumber];
 	} else {
 		secondaryNumber += " " + currentNumber + " =";
 	}

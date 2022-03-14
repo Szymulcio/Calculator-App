@@ -238,6 +238,7 @@
   -ms-grid-row-span: 1;
   grid-row: 2 / 3;
   color: var(--text-secondary);
+  text-align: center;
 }
 
 .display-panel__number--secondary {
