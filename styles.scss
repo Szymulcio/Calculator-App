@@ -9,9 +9,9 @@
 	box-shadow: 0px 4px 0px 0px var(--key-shadow-special);
 }
 
-:root {
-	--theme: "keys";
-	--map: "$theme-1";
+@mixin width {
+	width: 90%;
+	max-width: 500px;
 }
 
 * {
@@ -137,8 +137,9 @@
 .container {
 	font-family: "Spartan", sans-serif;
 	font-size: 2rem;
-	width: 375px;
-	margin: 50px auto;
+	min-width: 375px;
+	max-width: 1440px;
+	// margin: 25px;
 	padding-bottom: 1rem;
 	background-color: var(--background-main);
 }
@@ -147,7 +148,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 90%;
+	@include width();
 	margin: auto;
 	padding-top: 2rem;
 	color: var(--text-secondary);
@@ -155,6 +156,7 @@
 	&__theme {
 		font-size: 45%;
 		flex: 0 0 45%;
+		max-width: 150px;
 		display: grid;
 		grid-template: 1fr 1fr / 1fr 1fr;
 
@@ -175,8 +177,8 @@
 
 		&--btn {
 			position: relative;
-			background-color: var(--background--keypad);
 			height: 24px;
+			background-color: var(--background--keypad);
 			border: none;
 			border-radius: 12px;
 			cursor: pointer;
@@ -208,19 +210,32 @@
 }
 
 .display-panel {
-	height: 100px;
-	width: 90%;
+	height: 120px;
+	@include width();
 	border-radius: 10px;
 	margin: 2rem auto;
 	padding-right: 1.5rem;
 	background-color: var(--background--screen);
-	display: flex;
+	// display: flex;
+	// flex-direction: column;
+	display: grid;
+	grid-template-rows: 12fr 20fr 12fr;
 	align-items: center;
-	justify-content: flex-end;
-}
+	justify-items: end;
+	justify-content: end;
 
-.display-panel__number {
-	color: var(--text-secondary);
+	&__number {
+		// padding-top: 4px;
+		grid-row: 2 / 3;
+		color: var(--text-secondary);
+
+		&--secondary {
+			grid-row: 3 / 4;
+			color: #d3d3d3;
+			font-size: 60%;
+			opacity: 0;
+		}
+	}
 }
 
 .keys-panel {
@@ -231,7 +246,7 @@
 	}
 	background-color: var(--background--keypad);
 	border-radius: 10px;
-	width: 90%;
+	@include width();
 	margin: 2rem auto 1rem;
 	padding: 1.5rem 1.5rem 2rem;
 
@@ -245,6 +260,7 @@
 		color: var(--text-main);
 		background-color: var(--key-background);
 		box-shadow: 0px 4px 0px 0px var(--key-shadow);
+		cursor: pointer;
 
 		&--del {
 			@include keys-special;
