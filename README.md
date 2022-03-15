@@ -7,9 +7,9 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 ## Table of contents
 
 - [Overview](#overview)
+  - [Links](#links)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -17,6 +17,11 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 - [Author](#author)
 
 ## Overview
+
+### Links
+
+- [CODE](https://github.com/Szymulcio/Calculator-App)
+- [LIVE](https://szymulcio.github.io/Calculator-App/)
 
 ### The challenge
 
@@ -35,11 +40,6 @@ As a patter for testing functionallity I used built-in Windows calculator.
 ![image](https://user-images.githubusercontent.com/82280382/158364230-69b78d5b-7a6f-4bbe-8acb-71b91471e13b.png)
 ![image](https://user-images.githubusercontent.com/82280382/158364304-91495aeb-8ed2-44f8-8e9d-9df7021eb3aa.png)
 ![image](https://user-images.githubusercontent.com/82280382/158364936-fdeeff21-3c75-4212-8ef0-7a9ee062d69f.png)
-
-### Links
-
-- CODE: [https://github.com/Szymulcio/Calculator-App]
-- LIVE: [https://szymulcio.github.io/Calculator-App/]
 
 ## My process
 
