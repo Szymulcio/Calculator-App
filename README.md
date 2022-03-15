@@ -64,4 +64,4 @@ For future project I would like to dive deeper into SASS functionality, I think 
 ## Author
 Szymon Wojnarowski
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/szymulcio)
+- Frontend Mentor - [@Szymulcio](https://www.frontendmentor.io/profile/szymulcio)
