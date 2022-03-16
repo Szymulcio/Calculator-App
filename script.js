@@ -39,6 +39,9 @@ const displayNumber = function (number) {
 		primaryDisplay.textContent = "Your number is too big, sorry!";
 		resetAll();
 		setTimeout(() => displayNumber(currentNumber), 5000);
+	} else if (number.toString().length > 13) {
+		number = Number.parseFloat(number).toFixed(13);
+		primaryDisplay.textContent = number;
 	} else primaryDisplay.textContent = number;
 };
 
@@ -51,13 +54,10 @@ const calculate = function (currNum, sign, prevNum) {
 	if (sign === "+") return Number.parseFloat(prevNum) + Number.parseFloat(currNum);
 	else if (sign === "-") return Number.parseFloat(prevNum) - Number.parseFloat(currNum);
 	else if (sign === "x") {
-		console.log(Number.parseFloat(prevNum));
-		console.log(Number.parseFloat(currNum));
-		console.log(sign);
 		return Number.parseFloat(prevNum) * Number.parseFloat(currNum);
 	} else if (sign === "/")
 		return Number.parseFloat(
-			(Number.parseFloat(prevNum) / Number.parseFloat(currNum)).toFixed(20)
+			(Number.parseFloat(prevNum) / Number.parseFloat(currNum)).toFixed(10)
 		);
 };
 
@@ -79,9 +79,11 @@ numberKey.forEach(function (key) {
 			resetAll();
 		}
 
-		currentNumber === "0"
-			? (currentNumber = this.textContent)
-			: (currentNumber += this.textContent);
+		if (currentNumber.length < 13) {
+			currentNumber === "0"
+				? (currentNumber = this.textContent)
+				: (currentNumber += this.textContent);
+		}
 		displayNumber(currentNumber);
 	});
 });
@@ -116,8 +118,10 @@ signKey.forEach(function (key) {
 });
 
 dotKey.addEventListener("click", function () {
-	currentNumber += this.textContent;
-	displayNumber(currentNumber);
+	if (currentNumber.length < 13 && currentNumber.slice(-1) !== ".") {
+		currentNumber += this.textContent;
+		displayNumber(currentNumber);
+	}
 });
 
 resetKey.addEventListener("click", function () {

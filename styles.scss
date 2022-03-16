@@ -140,6 +140,8 @@
 	min-width: 375px;
 	max-width: 1440px;
 	// margin: 25px;
+	margin: auto;
+	padding-top: 1rem;
 	padding-bottom: 1rem;
 	background-color: var(--background-main);
 }
@@ -262,6 +264,14 @@
 		background-color: var(--key-background);
 		box-shadow: 0px 4px 0px 0px var(--key-shadow);
 		cursor: pointer;
+		transition: top 100ms ease-in;
+
+		&:active {
+			position: relative;
+			top: 4px;
+			box-shadow: none;
+			transition: top 100ms ease-in;
+		}
 
 		&--del {
 			@include keys-special;
